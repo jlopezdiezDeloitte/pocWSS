@@ -1,0 +1,7 @@
+com\ejie\poc\alternativa\servicios\configuration\SumWSConfiguration.class
+com\ejie\poc\alternativa\servicios\SumWSImpl.class
+com\ejie\poc\alternativa\servicios\app\DemoServiceApplication.class
+com\ejie\poc\alternativa\servicios\dto\SumRequest.class
+com\ejie\poc\alternativa\servicios\PasswordCallbackHandler.class
+com\ejie\poc\alternativa\servicios\dto\SumResponse.class
+com\ejie\poc\alternativa\servicios\SumWS.class

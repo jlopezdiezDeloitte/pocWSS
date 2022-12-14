@@ -1,0 +1,11 @@
+spring:
+    main:
+        banner-mode: "off"
+---
+spring: 
+  profiles.active: dev
+server:
+    address: 0.0.0.0
+    port: 9090  
+service:
+  url: http://localhost:8080/sumapp/services/sumService?wsdl
