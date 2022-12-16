@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="ec929151-e1a0-4fe2-ac23-63b3ff93b5af" activeEnvironment="Default" name="sumService?wsdl" resourceRoot="" soapui-version="5.5.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="155552e7-5b3f-43e4-b017-10c47c6f78b8" wsaVersion="NONE" name="SumWSServiceSoapBinding" type="wsdl" bindingName="{http://servicios.alternativa.poc.ejie.com/}SumWSServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/ejie/pocWSS/pocWSSClient/src/main/resources/sumService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\ejie\pocWSS\pocWSSClient\src\main\resources\sumService.wsdl"><con:part><con:url>file:\C:\ejie\pocWSS\pocWSSClient\src\main\resources\sumService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="SumWSService" targetNamespace="http://servicios.alternativa.poc.ejie.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://servicios.alternativa.poc.ejie.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://servicios.alternativa.poc.ejie.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="calculateSum" type="tns:calculateSum"/>
+      <xs:element name="calculateSumResponse" type="tns:calculateSumResponse"/>
+      <xs:complexType name="calculateSum">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:SumRequest"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SumRequest">
+        <xs:sequence>
+          <xs:element name="num1" type="xs:int"/>
+          <xs:element name="num2" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="calculateSumResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:SumResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SumResponse">
+        <xs:sequence>
+          <xs:element name="result" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="calculateSum">
+    <wsdl:part element="tns:calculateSum" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calculateSumResponse">
+    <wsdl:part element="tns:calculateSumResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SumWs">
+    <wsdl:operation name="calculateSum">
+      <wsdl:input message="tns:calculateSum" name="calculateSum"></wsdl:input>
+      <wsdl:output message="tns:calculateSumResponse" name="calculateSumResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SumWSServiceSoapBinding" type="tns:SumWs">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="calculateSum">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="calculateSum">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="calculateSumResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SumWSService">
+    <wsdl:port binding="tns:SumWSServiceSoapBinding" name="SumWsPort">
+      <soap:address location="http://localhost:8080/sumapp/services/sumService"/>
+      <!--<soap:address location="http://localhost:8080/SumWsPort"/>-->
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/sumapp/services/sumService</con:endpoint></con:endpoints><con:operation id="457450d3-8da7-49d6-9e14-c5a8d18fbc85" isOneWay="false" action="" name="calculateSum" bindingOperationName="calculateSum" type="Request-Response" outputName="calculateSumResponse" inputName="calculateSum" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0dba3048-2899-4400-82f8-cfb6f41f871d" name="Request 1" outgoingWss="outgoing" incomingWss="incoming"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/sumapp/services/sumService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://servicios.alternativa.poc.ejie.com/">\r
+   <soapenv:Header/>\r
+   	<!-- UsernameToken -->
+	<!-- Timestamp -->
+   	<!-- Encrypt -->
+   	<!--
+   	Encriptamos con la clave pública del server
+   	-->
+	<!-- Signature -->
+	<!--
+	Firmamos con la clave privada del cliente
+	-->
+   
+   <soapenv:Body>\r
+      <ser:calculateSum>\r
+         <!--Optional:-->\r
+         <arg0>\r
+            <num1>5</num1>\r
+            <num2>3</num2>\r
+         </arg0>\r
+      </ser:calculateSum>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username/><con:password/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://servicios.alternativa.poc.ejie.com/SumWs/calculateSum"/><con:wsrmConfig version="1.2"/></con:call><con:call id="5bb282b2-128d-43cb-882f-d3c91d83e7ec" name="Copy of Request 1" outgoingWss="minimal_outgoing"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/sumapp/services/sumService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://servicios.alternativa.poc.ejie.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:calculateSum>\r
+         <!--Optional:-->\r
+         <arg0>\r
+            <num1>5</num1>\r
+            <num2>3</num2>\r
+         </arg0>\r
+      </ser:calculateSum>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username/><con:password/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://servicios.alternativa.poc.ejie.com/SumWs/calculateSum"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer><con:crypto><con:source>C:/ejie/pocWSS/pocWSSClient/src/main/resources/clientkeystore.jks</con:source><con:password>cspass</con:password><con:type>KEYSTORE</con:type></con:crypto><con:incoming><con:name>incoming</con:name><con:decryptCrypto>clientkeystore.jks</con:decryptCrypto><con:signatureCrypto>clientkeystore.jks</con:signatureCrypto><con:decryptPassword>cspass</con:decryptPassword></con:incoming><con:outgoing><con:name>outgoing</con:name><con:password/><con:entry type="Encryption" username="myserverkey" password="skpass"><con:configuration><crypto>clientkeystore.jks</crypto><keyIdentifierType>3</keyIdentifierType><symmetricEncAlgorithm/><encKeyTransport/><embeddedKeyName/><embeddedKeyPassword/><encryptionCanonicalization/><encryptSymmetricKey>true</encryptSymmetricKey></con:configuration></con:entry><con:entry type="Timestamp"><con:configuration><timeToLive>30</timeToLive><strictTimestamp>true</strictTimestamp></con:configuration></con:entry><con:entry type="Signature" username="myclientkey" password="ckpass"><con:configuration><crypto>clientkeystore.jks</crypto><keyIdentifierType>3</keyIdentifierType><signatureAlgorithm/><signatureCanonicalization/><useSingleCert>false</useSingleCert><prependSignature>true</prependSignature><digestAlgorithm/><customTokenValueType/><customTokenId/></con:configuration></con:entry><con:entry type="Username" username="sumuser" password="sumpass"><con:configuration><addCreated>true</addCreated><addNonce>true</addNonce><passwordType>PasswordText</passwordType></con:configuration></con:entry></con:outgoing><con:outgoing><con:name>minimal_outgoing</con:name><con:entry type="Timestamp"><con:configuration><timeToLive>30</timeToLive><strictTimestamp>true</strictTimestamp></con:configuration></con:entry><con:entry type="Username" username="sumuser" password="sumpass"><con:configuration><addCreated>true</addCreated><addNonce>true</addNonce><passwordType>PasswordText</passwordType></con:configuration></con:entry></con:outgoing></con:wssContainer><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
